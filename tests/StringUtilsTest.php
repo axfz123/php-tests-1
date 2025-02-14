@@ -8,14 +8,10 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
+use Webmozart\Assert\Assert;
 use PhpTests\StringUtils;
 
-if (StringUtils\capitalize('hello') !== 'Hello') {
-    throw new \Exception('Функция работает неверно!');
-}
+Assert::eq(StringUtils\capitalize('hello'), 'Hello');
+Assert::eq(StringUtils\capitalize(''), '');
 
-if (StringUtils\capitalize('') !== '') {
-    throw new \Exception('Функция работает неверно!');
-}
-
-echo 'Все тесты пройдены!';
+echo 'All tests passed succesfully!';
